@@ -10,7 +10,7 @@
 
 **Developer:** Michael Heckerman
 
-**Date Revised:** 1/15/25
+**Date Revised:** 1/17/25
 
 **Figma Approved By:** Jacob 1/14/25 3:50pm
 
@@ -19,7 +19,7 @@
 
 [Figma](https://www.figma.com/design/2xOvoB0F0DCTUDBSx30QfC/Rock%2CPaper%2CScissors%2CLizard%2CSpock?node-id=0-1&p=f&t=pJNk4w7yv4gCDthi-0)
 
-[Github-Repo For Frontend]()
+[Github-Repo For Frontend](https://github.com/mkheck13/FrontEndRPSLS)
 
 [Github-Repo For Backend](https://github.com/mkheck13/RPSLS)
 

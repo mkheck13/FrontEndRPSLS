@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rock, Paper, Scissors, Lizard, Spock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unkempt&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <h1>Rock, Paper, Scissors, Lizard, Spock</h1>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <a id="vsCPU"
+            ><button type="submit" class="btn btn-secondary">
+              P vs. Cpu
+            </button></a
+          >
+
+          <a id="vsHuman"
+            ><button type="submit" class="btn btn-secondary">P v P</button></a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <button id="oneRound" type="submit" class="btn btn-light d-none">
+            1 round
+          </button>
+          <button id="fourRound" type="submit" class="btn btn-light d-none">
+            4 rounds
+          </button>
+          <button id="fiveRound" type="submit" class="btn btn-light d-none">
+            5 rounds
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 justify-content-center">
+          <h3>Player 1</h3>
+          <h3>Score:<span id="p1Points"> num here</span></h3>
+
+          <h3>Choice:<span id="p1Choice"> choice here</span></h3>
+        </div>
+        <div class="col-4 justify-content-center">
+            <h3 id="textBox">text here</h3>
+            <p id="turnText" class="d-none">game over man</p>
+
+        </div>
+        <div class="col-4 justify-content-center">
+          <h3 id="vsType">vs. CPU</h3>
+          <h3>Score:<span id="p2Points"> num here</span></h3>
+
+          <h3>Choice:<span id="p2Choice"> choice here</span></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <button id="rockBtn" type="button" class="btn btn-success d-none">Rock</button>
+          <button id="paperBtn" type="button" class="btn btn-success d-none">
+            Paper
+          </button>
+          <button id="scissorsBtn" type="button" class="btn btn-success d-none">
+            Scissors
+          </button>
+          <button id="lizardBtn" type="button" class="btn btn-success d-none">
+            Lizard
+          </button>
+          <button id="spockBtn" type="button" class="btn btn-success d-none">
+            Spock
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+            <button id="replayBtn" type="submit" class="btn btn-warning d-none">Replay</button>
+        </div>
+      </div>
+      <span id="dummy"></span>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../scripts/app.js"></script>
+  </body>
+</html>
