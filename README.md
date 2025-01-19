@@ -28,6 +28,6 @@
 
 ## FeedBack/Peer Review: 
 
-**Reviewer:** "Name Here" 
+**Reviewer:** Aaron Robinson 
 
-**Comments:** "Review Here" 
+**Comments:** The site works as intended and functions correctly. I like your use of the .onclick = functionality, I have been using EventListeners I will need to learn more about that. There are a few things that could be condensed in the code. One that stuck out to me is that setting the p1/2points.innerText to player1/2score.ToString() will remove the need for calling a function (scoreUpdate()) to update the score each and everytime (remember to reset the score after the game is over is you choose to incldue this) All in all cool site and good job
