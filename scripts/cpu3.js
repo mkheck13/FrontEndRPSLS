@@ -22,7 +22,7 @@ cpu1LizardBtn.style.display = "none";
 cpu1SpockBtn.style.display = "none";
 
 cpu1PlayBtn.addEventListener('click', function (e) {
-    CPU1Round(1);
+    CPU1Round(3);
     cpu1PlayBtn.style.display = "none";
     cpu1RockBtn.style.display = "block";
     cpu1PaperBtn.style.display = "block";

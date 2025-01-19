@@ -13,5 +13,6 @@ body{
 
 h1, h2 ,h3, a, p, ul, li{
     color: whitesmoke;
+    text-align: center;
 };
 
