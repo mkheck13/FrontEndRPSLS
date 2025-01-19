@@ -29,61 +29,38 @@
 
 
 
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <a id="vsCPU"
-            ><button type="submit" class="btn btn-secondary">
-              P vs. Cpu
-            </button></a
-          >
 
-          <a id="vsHuman"
-            ><button type="submit" class="btn btn-secondary">P v P</button></a
-          >
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <button id="oneRound" type="submit" class="btn btn-light ">
-            1 round
-          </button>
-          <button id="fourRound" type="submit" class="btn btn-light ">
-            4 rounds
-          </button>
-          <button id="fiveRound" type="submit" class="btn btn-light ">
-            5 rounds
-          </button>
-        </div>
-      </div>
+
 
       <div class="row">
         <div class="col-3 justify-content-center">
           <h3>Player 1</h3>
-          <h3>Score:<span id="p1Points"> num here</span></h3>
+          <h3>Score:<span id="cpu1P1Points"> num here</span></h3>
         </div>
+
         <div class="col-6 justify-content-center">
-            <h3 id="textBox">text here</h3>
-            <p id="turnText" class="">game over man</p>
+            <h3 id="cpu1TextBox">text here</h3>
+            <p id="cpu1TurnText" class="">game over man</p>
 
         </div>
         <div class="col-3 justify-content-center">
-          <h3 id="vsType">vs. CPU</h3>
-          <h3>Score:<span id="p2Points"> num here</span></h3>
+          <h3>vs. CPU</h3>
+          <h3>Score:<span id="cpu1P2Points"> num here</span></h3>
         </div>
       </div>
       <div class="row">
         <div class="col d-flex justify-content-center">
-          <button id="rockBtn" type="button" class="btn btn-success ">Rock</button>
-          <button id="paperBtn" type="button" class="btn btn-success ">
+          <button id="cpu1RockBtn" type="button" class="btn btn-success ">Rock</button>
+          <button id="cpu1PaperBtn" type="button" class="btn btn-success ">
             Paper
           </button>
-          <button id="scissorsBtn" type="button" class="btn btn-success ">
+          <button id="cpu1ScissorsBtn" type="button" class="btn btn-success ">
             Scissors
           </button>
-          <button id="lizardBtn" type="button" class="btn btn-success ">
+          <button id="cpu1LizardBtn" type="button" class="btn btn-success ">
             Lizard
           </button>
-          <button id="spockBtn" type="button" class="btn btn-success ">
+          <button id="cpu1SpockBtn" type="button" class="btn btn-success ">
             Spock
           </button>
         </div>
@@ -91,10 +68,16 @@
 
       <div class="row">
         <div class="col d-flex justify-content-center">
-            <button id="replayBtn" type="submit" class="btn btn-warning ">Replay</button>
+            <!-- <button id="replayBtn" type="submit" class="btn btn-warning ">Replay</button> -->
+            <a href="../index.html" style="text-decoration: none;"><button id="replayBtn" type="submit" class="btn btn-warning" >Replay</button></a>
         </div>
       </div>
-      <span id="dummy"></span>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+            <button id="cpu1PlayBtn" type="button" class="btn btn-success ">Play</button>
+        </div>
+      </div>
     </div>
 
     <script
@@ -102,6 +85,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/app.js"></script>
+    <script src="../scripts/cpuvs.js"></script>
   </body>
 </html>

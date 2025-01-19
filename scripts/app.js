@@ -31,31 +31,31 @@ let spockBtn = document.getElementById('spockBtn');
 let headToHead;
 
 // button logic
-vsCPU.addEventListener('click', function (e){
+vsCPU.addEventListener('click', function (e) {
     headToHead = false;
     HiddenOn(vsCPU, vsHuman);
     HiddenOn(oneRound, fourRound, fiveRound);
     textBox.textContent = "How many rounds?";
 });
 
-vsHuman.addEventListener('click', function (e){
+vsHuman.addEventListener('click', function (e) {
     headToHead = true;
     HiddenOn(vsCPU, vsHuman);
     HiddenOn(oneRound, fourRound, fiveRound);
     textBox.textContent = "How many rounds?";
 });
 
-oneRound.addEventListener('click', function(e){
+oneRound.addEventListener('click', function (e) {
     GameOn(1, headToHead);
     HiddenOff(oneRound, fourRound, fiveRound);
 });
 
-fourRound.addEventListener('click', function(e){
+fourRound.addEventListener('click', function (e) {
     GameOn(4, headToHead);
     HiddenOff(oneRound, fourRound, fiveRound);
 });
 
-fiveRound.addEventListener('click', function(e){
+fiveRound.addEventListener('click', function (e) {
     GameOn(5, headToHead);
     HiddenOff(oneRound, fourRound, fiveRound);
 });
@@ -136,7 +136,7 @@ function GameOn(totalCount, headToHead){
     };
 
     async function TurnCPU() {
-        const promise = await fetch("");
+        const promise = await fetch("https://heckermanmrpsls-e2aabgevcsfghrcp.westus-01.azurewebsites.net/RPSLS/RPSLS");
         const data = await promise.text();
         player2Input = data;
         GameLogic();
@@ -273,7 +273,7 @@ function GameOn(totalCount, headToHead){
             }
             textBox.textContent += `${player2Input}!`
         }else{
-            textBox.textContent += `and ${player2Input} are the same. That was a tie.`;
+            textBox.textContent += ` and ${player2Input} are the same. That was a tie.`;
         }
 
         if(player1Score >= totalCount || player2Score >= totalCount){
@@ -312,90 +312,27 @@ function GameOn(totalCount, headToHead){
     }
 
     function ScoreUpdate(){
-        p1Points.innerText = `Score: ${userScore}`;
-        p2Points.innerText = `Score: ${userScore}`;
+        p1Points.innerText = `Score: ${player1Score}`;
+        p2Points.innerText = `Score: ${player2Score}`;
     
     }
-    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Functions to show and hide elements
-function HiddenOn(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
-    variable1.classList.add("d-none");
-    variable2.classList.add("d-none");
-    variable3.classList.add("d-none");
-    variable4.classList.add("d-none");
-    variable5.classList.add("d-none");
-};
+// function HiddenOn(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
+//     variable1.classList.add("d-none");
+//     variable2.classList.add("d-none");
+//     variable3.classList.add("d-none");
+//     variable4.classList.add("d-none");
+//     variable5.classList.add("d-none");
+// };
 
-function HiddenOff(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
-    variable1.classList.remove("d-none");
-    variable2.classList.remove("d-none");
-    variable3.classList.remove("d-none");
-    variable4.classList.remove("d-none");
-    variable5.classList.remove("d-none");
-};
-
-
-
-
-
-
-
+// function HiddenOff(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
+//     variable1.classList.remove("d-none");
+//     variable2.classList.remove("d-none");
+//     variable3.classList.remove("d-none");
+//     variable4.classList.remove("d-none");
+//     variable5.classList.remove("d-none");
+// };
 
