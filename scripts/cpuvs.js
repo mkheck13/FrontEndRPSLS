@@ -16,10 +16,10 @@ let cpu1P2Points = document.getElementById('cpu1P2Points');
 let cpu1TextBox = document.getElementById('cpu1TextBox');
 let cpu1TurnText = document.getElementById('cpu1TurnText');
 
-let endScore = 1;
+replayBtn.style.display = 'none';
 
 cpu1PlayBtn.addEventListener('click', function (e){
-    CPU1Round();
+    CPU1Round(1);
     cpu1PlayBtn.style.display = "none";
 });
 
@@ -31,7 +31,7 @@ function CPU1Round(endScore) {
     let player1Input;
     let cpuInput;
 
-    replayBtn.style.display = 'none';
+    
 
     Player1Turn();
 
@@ -61,7 +61,7 @@ function CPU1Round(endScore) {
     //     player1Score = 0;
     //     cpuScore = 0;
     
-    //     replayBtn.style.display = 'block'; 
+    //     
     // };
 
 
@@ -237,6 +237,7 @@ function CPU1Round(endScore) {
                 cpu1TextBox.textContent = "Player Two Wins";
             }
             cpu1TurnText.textContent = "Game Over"
+            replayBtn.style.display = 'block'; 
     
         }else{
             ScoreUpdate();
