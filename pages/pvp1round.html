@@ -27,36 +27,35 @@
         </div>
       </div>
 
+
       <div class="row">
         <div class="col-3 justify-content-center">
           <h3>Player 1</h3>
-          <h3 id="cpu1P1Points">Score:</h3>
+          <h3 id="p1Points">Score:</h3>
         </div>
-
         <div class="col-6 justify-content-center">
-          <h3 id="cpu1TextBox"></h3>
-          <h3 id="cpu1TurnText" class=""></h3>
+            <h3 id="textBox"></h3>
+            <h3 id="turnText" class=""></h3>
+
         </div>
         <div class="col-3 justify-content-center">
-          <h3>CPU</h3>
-          <h3 id="cpu1P2Points">Score:</h3>
+          <h3 id="vsType">Player 2</h3>
+          <h3 id="p2Points">Score:</h3>
         </div>
       </div>
       <div class="row">
         <div class="col d-flex justify-content-center">
-          <button id="cpu1RockBtn" type="button" class="btn btn-success">
-            Rock
-          </button>
-          <button id="cpu1PaperBtn" type="button" class="btn btn-success">
+          <button id="rockBtn" type="button" class="btn btn-success ">Rock</button>
+          <button id="paperBtn" type="button" class="btn btn-success ">
             Paper
           </button>
-          <button id="cpu1ScissorsBtn" type="button" class="btn btn-success">
+          <button id="scissorsBtn" type="button" class="btn btn-success ">
             Scissors
           </button>
-          <button id="cpu1LizardBtn" type="button" class="btn btn-success">
+          <button id="lizardBtn" type="button" class="btn btn-success ">
             Lizard
           </button>
-          <button id="cpu1SpockBtn" type="button" class="btn btn-success">
+          <button id="spockBtn" type="button" class="btn btn-success ">
             Spock
           </button>
         </div>
@@ -74,11 +73,12 @@
 
       <div class="row">
         <div class="col d-flex justify-content-center">
-          <button id="cpu1PlayBtn" type="button" class="btn btn-success">
+          <button id="pvp1PlayBtn" type="button" class="btn btn-success">
             Play
           </button>
         </div>
       </div>
+      <span id="dummy"></span>
     </div>
 
     <script
@@ -86,6 +86,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/cpu1.js"></script>
+    <script src="../scripts/pvp1.js"></script>
   </body>
 </html>

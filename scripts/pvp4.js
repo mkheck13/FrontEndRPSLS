@@ -1,26 +1,6 @@
-const apiLink = "https://heckermanmrpsls-e2aabgevcsfghrcp.westus-01.azurewebsites.net/RPSLS/RPSLS";
-
-let vsCPU = document.getElementById('vsCPU');
-let vsHuman = document.getElementById('vsHuman');
-
-let p1Choice = document.getElementById("p1Choice");
-let p2Choice = document.getElementById("p2Choice");
-
-let p1Points = document.getElementById("p1Points");
-let p2Points = document.getElementById("p2Points");
-
-let textBox = document.getElementById("textBox");
-let turnText = document.getElementById("turnText");
-
-
-
-let oneRound = document.getElementById("oneRound");
-let fourRound = document.getElementById("fourRound");
-let fiveRound = document.getElementById("fiveRound");
-
+// Element Id's
 let replayBtn = document.getElementById("replayBtn");
-
-let dummyElement = document.getElementById('dummy');
+let pvp1PlayBtn = document.getElementById('pvp1PlayBtn');
 
 let rockBtn = document.getElementById('rockBtn');
 let paperBtn = document.getElementById('paperBtn');
@@ -28,67 +8,55 @@ let scissorsBtn = document.getElementById('scissorsBtn');
 let lizardBtn = document.getElementById('lizardBtn');
 let spockBtn = document.getElementById('spockBtn');
 
+let p1Points = document.getElementById("p1Points");
+let p2Points = document.getElementById("p2Points");
+
+let textBox = document.getElementById("textBox");
+let turnText = document.getElementById("turnText");
+
 let headToHead;
 
+replayBtn.style.display = 'none';
+rockBtn.style.display = "none";
+paperBtn.style.display = "none";
+scissorsBtn.style.display = "none";
+lizardBtn.style.display = "none";
+spockBtn.style.display = "none";
+
 // button logic
-vsCPU.addEventListener('click', function (e) {
-    headToHead = false;
-    HiddenOn(vsCPU, vsHuman);
-    HiddenOn(oneRound, fourRound, fiveRound);
-    textBox.textContent = "How many rounds?";
-});
 
-vsHuman.addEventListener('click', function (e) {
+pvp1PlayBtn.addEventListener('click', function (e) {
     headToHead = true;
-    HiddenOn(vsCPU, vsHuman);
-    HiddenOn(oneRound, fourRound, fiveRound);
-    textBox.textContent = "How many rounds?";
-});
-
-oneRound.addEventListener('click', function (e) {
-    GameOn(1, headToHead);
-    HiddenOff(oneRound, fourRound, fiveRound);
-});
-
-fourRound.addEventListener('click', function (e) {
     GameOn(4, headToHead);
-    HiddenOff(oneRound, fourRound, fiveRound);
+    pvp1PlayBtn.style.display = "none";
+    rockBtn.style.display = "block";
+    paperBtn.style.display = "block";
+    scissorsBtn.style.display = "block";
+    lizardBtn.style.display = "block";
+    spockBtn.style.display = "block";
 });
 
-fiveRound.addEventListener('click', function (e) {
-    GameOn(5, headToHead);
-    HiddenOff(oneRound, fourRound, fiveRound);
-});
-
-
-function GameOn(totalCount, headToHead){
+function GameOn(totalCount, headToHead) {
     let player1Score = 0;
     let player2Score = 0;
 
     let player1Input;
     let player2Input;
 
-    ScoreUpdate();
-
     Player1Turn();
 
-    HiddenOn(rockBtn, paperBtn, scissorsBtn, lizardBtn, spockBtn);
-    HiddenOn(p1Points, p2Points, turnText);
+    ScoreUpdate();
 
-    textBox.textContent = 'Rock, Paper, Scissors, Lizard, or Spock';
-
-
-    function ButtonSelect(Player1Turn, input, Method){
-        if(Player1Turn){
+    function ButtonSelect(Player1Turn, input, Method) {
+        if (Player1Turn) {
             player1Input = input;
-        }else{
+        } else {
             player2Input = input;
         }
         Method();
     };
 
-
-    function Player1Turn(){
+    function Player1Turn() {
         turnText.textContent = 'Player 1 Turn';
 
         rockBtn.onclick = function () {
@@ -106,13 +74,10 @@ function GameOn(totalCount, headToHead){
         spockBtn.onclick = function () {
             ButtonSelect(true, "Spock", Player2Turn);
         };
-
-
     };
 
-
-    async function Player2Turn(){
-        if(headToHead){
+    async function Player2Turn() {
+        if (headToHead) {
             turnText.textContent = 'Player 2 Turn';
 
             rockBtn.onclick = function () {
@@ -130,29 +95,18 @@ function GameOn(totalCount, headToHead){
             spockBtn.onclick = function () {
                 ButtonSelect(false, "Spock", GameLogic);
             };
-        }else{
-            TurnCPU();
+
         }
     };
 
-    async function TurnCPU() {
-        const promise = await fetch("https://heckermanmrpsls-e2aabgevcsfghrcp.westus-01.azurewebsites.net/RPSLS/RPSLS");
-        const data = await promise.text();
-        player2Input = data;
-        GameLogic();
-    }
-
-
-
-
-//Swtich cases to see who won
-    function GameLogic(){
+    //Swtich cases to see who won
+    function GameLogic() {
         textBox.textContent = player1Input;
 
-        if(player1Input !== player2Input){
-            switch(player1Input){
+        if (player1Input !== player2Input) {
+            switch (player1Input) {
                 case "Rock":
-                    switch(player2Input){
+                    switch (player2Input) {
                         case "Paper":
                             textBox.textContent += ' gets covered by ';
                             player2Score++;
@@ -162,12 +116,12 @@ function GameOn(totalCount, headToHead){
                             textBox.textContent += ' smashes ';
                             player1Score++;
                             break;
-        
+
                         case "Lizard":
                             textBox.textContent += ' crushes ';
                             player1Score++;
                             break;
-        
+
                         case "Spock":
                             textBox.textContent += ' gets vaporized by ';
                             player2Score++;
@@ -176,7 +130,7 @@ function GameOn(totalCount, headToHead){
                     break;
 
                 case "Paper":
-                    switch(player2Input){
+                    switch (player2Input) {
                         case "Rock":
                             textBox.textContent += ' covers ';
                             player1Score++;
@@ -186,12 +140,12 @@ function GameOn(totalCount, headToHead){
                             textBox.textContent += ' gets cut by ';
                             player2Score++;
                             break;
-    
+
                         case "Lizard":
                             textBox.textContent += ' gets eaten by ';
                             player2Score++;
                             break;
-    
+
                         case "Spock":
                             textBox.textContent += ' disproves ';
                             player1Score++;
@@ -200,7 +154,7 @@ function GameOn(totalCount, headToHead){
                     break;
 
                 case "Scissors":
-                    switch(player2Input){
+                    switch (player2Input) {
                         case "Rock":
                             textBox.textContent += ' gets smashed by ';
                             player2Score++;
@@ -224,7 +178,7 @@ function GameOn(totalCount, headToHead){
                     break;
 
                 case "Lizard":
-                    switch(player2Input){
+                    switch (player2Input) {
                         case "Rock":
                             textBox.textContent += ' gets crushed by ';
                             player2Score++;
@@ -248,7 +202,7 @@ function GameOn(totalCount, headToHead){
                     break;
 
                 case "Spock":
-                    switch(player2Input){
+                    switch (player2Input) {
                         case "Rock":
                             textBox.textContent += ' vaporizes ';
                             player1Score++;
@@ -272,37 +226,25 @@ function GameOn(totalCount, headToHead){
                     break;
             }
             textBox.textContent += `${player2Input}!`
-        }else{
+        } else {
             textBox.textContent += ` and ${player2Input} are the same. That was a tie.`;
         }
 
-        if(player1Score >= totalCount || player2Score >= totalCount){
+        if (player1Score >= totalCount || player2Score >= totalCount) {
             ScoreUpdate();
-            HiddenOff(rockBtn, scissorsBtn, paperBtn, lizardBtn, spockBtn);
 
-            if(player1Score > player2Score){
-                textBox.textContent = 'Player One Wins!!!';
-            }else{
-                textBox.textContent = 'Player Two Wins!!!';
+            if (player1Score > player2Score) {
+                turnText.textContent = 'Player One Wins!!!';
+            } else {
+                turnText.textContent = 'Player Two Wins!!!';
             }
-
-            HiddenOn(replayBtn);
-
-            turnText.textContent = 'Game Over.';
-
-            replayBtn.onclick = function(){
-                player1Score = 0;
-                player2Score = 0;
-
-                HiddenOn(vsCPU, vsHuman);
-                HiddenOff(replayBtn);
-
-                textBox.textContent = 'Choose your opponent';
-
-                ScoreUpdate();
-            };
-
-        }else{
+            replayBtn.style.display = 'block';
+            rockBtn.style.display = "none";
+            paperBtn.style.display = "none";
+            scissorsBtn.style.display = "none";
+            lizardBtn.style.display = "none";
+            spockBtn.style.display = "none";
+        } else {
             ScoreUpdate();
             Player1Turn();
 
@@ -311,28 +253,9 @@ function GameOn(totalCount, headToHead){
         }
     }
 
-    function ScoreUpdate(){
+    function ScoreUpdate() {
         p1Points.innerText = `Score: ${player1Score}`;
         p2Points.innerText = `Score: ${player2Score}`;
-    
+
     }
 };
-
-
-// Functions to show and hide elements
-// function HiddenOn(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
-//     variable1.classList.add("d-none");
-//     variable2.classList.add("d-none");
-//     variable3.classList.add("d-none");
-//     variable4.classList.add("d-none");
-//     variable5.classList.add("d-none");
-// };
-
-// function HiddenOff(variable1 = dummyElm, variable2 = dummyElm, variable3 = dummyElm, variable4 = dummyElm, variable5 = dummyElm){
-//     variable1.classList.remove("d-none");
-//     variable2.classList.remove("d-none");
-//     variable3.classList.remove("d-none");
-//     variable4.classList.remove("d-none");
-//     variable5.classList.remove("d-none");
-// };
-
